@@ -38,11 +38,21 @@ var height = room_height div CELL_HEIGHT;
 //Create the grid
 grid = ds_grid_create(width, height);
 
+//Create pathfinding grid  origin, width, height
+grid_path = mp_grid_create(0,0, width, height, CELL_WIDTH, CELL_HEIGHT);
+
 //Fill the grid with the void
 ds_grid_set_region(grid, 0,0, width-1, height-1, VOID);
 
-//Randomize the world
-randomize();
+//Load a room
+if(show_question("Would you like to load a room?")){//true is yes, false if no
+    var key = get_string("What is the name of the room", "default");
+    ini_open("Save.ini");//open ini file
+    var seed = ini_read_real("Rooms", key, 0);//default seed of 0, get random seed we already saved
+    random_set_seed(seed);//set random seed to that
+}else{
+    randomize();
+}
 
 //Create the controller in the center of the grid
 var cx = width div 2;
@@ -99,12 +109,34 @@ for(var yy = 1; yy &lt; height -1; ++yy){
     }
 }
 
+//Remove singular walls
+for(var yy = 1; yy &lt; height -1; ++yy){
+    for(var xx = 1; xx &lt; width -1; ++xx){
+        if(grid[# xx, yy] == FLOOR){
+            //                                          up                          down                        left                        right
+            if(grid[# xx, yy] == WALL &amp;&amp; grid[# xx+1, yy] == FLOOR &amp;&amp; grid[# xx-1, yy] == FLOOR &amp;&amp; grid[# xx, yy+1] == FLOOR &amp;&amp; grid[# xx, yy-1] == FLOOR){//check right
+                grid[# xx, yy] = FLOOR;//set the wall into a floor
+            }
+        }
+    }
+}
+
 //Draw the level based off the grid
 for(var yy = 0; yy &lt; height; ++yy){
     for(var xx = 0; xx &lt; width; ++xx){
         if(grid[# xx, yy] == FLOOR){//  x            y        pos x          pos  y         depth
             //draw the foor
             tile_add(bg_floor, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
+            
+            //Add some enemies
+            var odds = 20;
+            var ex = xx*CELL_WIDTH+CELL_WIDTH/2
+            var ey = yy*CELL_HEIGHT+CELL_HEIGHT/2
+            if(point_distance(ex, ey, Player.x, Player.y) &gt; 80 &amp;&amp; irandom(odds) == odds){//prevents enemies from getting spawned right next to the player
+               instance_create(ex, ey, Enemy);
+            }
+        }else{
+            mp_grid_add_cell(grid_path, xx, yy);
         }
     }
 }
@@ -225,6 +257,61 @@ for(var yy = 0; yy &lt; height*2; yy++){
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Cleanup the room
+ds_grid_destroy(grid);
+mp_grid_destroy(grid_path);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="83">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Save the room
+ini_open("Save.ini");
+
+var key = get_string("What will you name the room", "default");
+var val = random_get_seed();
+//                  room name   seed
+ini_write_real("Rooms", key, val);
+ini_close();
 </string>
           </argument>
         </arguments>
