@@ -29,6 +29,9 @@
 spd = 8;
 hspd = 0;
 vspd = 0;
+grav = 1.5;
+jspd = 16;
+state = move_state;
 </string>
           </argument>
         </arguments>
@@ -51,53 +54,8 @@ vspd = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Control the player
-    right_control = (keyboard_check(vk_right) || keyboard_check(ord("D")));
-    left_control = (keyboard_check(vk_left) || keyboard_check(ord("A"))); 
-    up_control = (keyboard_check(vk_up) || keyboard_check(ord("W")));
-    down_control = (keyboard_check(vk_down) || keyboard_check(ord("S")));
-
-
-if(right_control){
-    hspd = spd;
-}
-if(left_control){
-    hspd = -spd;
-}
-if(up_control){
-    vspd = -spd;
-}
-if(down_control){
-    vspd = spd;
-}
-
-//pseudo friction
-if(!right_control &amp;&amp; !left_control){
-    hspd = 0;
-}
-if(!up_control &amp;&amp; !down_control){
-    vspd = 0;
-}
-
-//Horizontal Collisions
-if(place_meeting(x+hspd, y, Solid)){
-    while(!place_meeting(x+sign(hspd), y, Solid)){
-        x += sign(hspd);
-    }
-    hspd = 0;
-}
-x += hspd;
-
-if(place_meeting(x, y+vspd, Solid)){
-    while(!place_meeting(x, y+sign(vspd), Solid)){
-        y += sign(vspd);
-    }
-    vspd = 0;
-}
-y+=vspd;
-
-
-
+            <string>///Control the player's state
+script_execute(state);
 </string>
           </argument>
         </arguments>

@@ -12,11 +12,14 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\move_state.gml</script>
     <scripts name="Helper Scripts">
       <script>scripts\get_input.gml</script>
       <script>scripts\apply_friction.gml</script>
       <script>scripts\move.gml</script>
+    </scripts>
+    <scripts name="Player States">
+      <script>scripts\move_state.gml</script>
+      <script>scripts\ledge_grab_state.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
