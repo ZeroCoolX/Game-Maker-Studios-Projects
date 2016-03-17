@@ -6,11 +6,26 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_player_atk_left</sprite>
-    <sprite>sprites\spr_player_idle</sprite>
+    <sprite>sprites\spr_temp_ground</sprite>
+    <sprite>sprites\spr_player</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\move_state.gml</script>
+    <scripts name="Helper Scripts">
+      <script>scripts\get_input.gml</script>
+      <script>scripts\apply_friction.gml</script>
+      <script>scripts\move.gml</script>
+    </scripts>
+  </scripts>
+  <objects name="objects">
+    <object>objects\Solid</object>
+    <object>objects\Player</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_one</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
