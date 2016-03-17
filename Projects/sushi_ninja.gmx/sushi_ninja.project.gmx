@@ -8,6 +8,11 @@
   <sprites name="sprites">
     <sprite>sprites\spr_temp_ground</sprite>
     <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_ninja_idle</sprite>
+    <sprite>sprites\spr_ninja_run</sprite>
+    <sprite>sprites\spr_ninja_attack</sprite>
+    <sprite>sprites\spr_ninja_jump</sprite>
+    <sprite>sprites\spr_ledge_grab</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -20,6 +25,7 @@
     <scripts name="Player States">
       <script>scripts\move_state.gml</script>
       <script>scripts\ledge_grab_state.gml</script>
+      <script>scripts\attack_state.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">

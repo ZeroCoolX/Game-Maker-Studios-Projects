@@ -1,15 +1,15 @@
 ///move_state()
 
-//get input - the novice way
-    right_control = (keyboard_check(vk_right) || keyboard_check(ord("D")));
-    left_control = (keyboard_check(vk_left) || keyboard_check(ord("A"))); 
-    up_control = (keyboard_check(vk_up) || keyboard_check(ord("W")));
-    down_control = (keyboard_check(vk_down) || keyboard_check(ord("S")));
-    up_release = (keyboard_check_released(vk_up) || keyboard_check_released(ord("W")));
+
     
 //This means we're in the air!    
 if(!place_meeting(x, y+1, Solid)){
     vspd += grav;//appply gravity
+    
+    //Ninjas in the air
+    sprite_index = spr_ninja_jump;
+    image_speed = 0;//lets just see about this
+    image_index = (vspd > 0);//1 -> going down, 0 -> going up    very clever ben...
     
     //Control the jump height
     if(up_release && vspd < -6){
@@ -23,6 +23,23 @@ if(!place_meeting(x, y+1, Solid)){
     if(up_control){
         vspd = -jspd;
     }
+    
+    if(attack_control){
+        y += 1;
+        state = attack_state;
+        alarm[0] = room_speed/2;
+    }else{
+        
+        //ninja is grounded
+        if(hspd == 0){
+            sprite_index = spr_ninja_idle;
+            image_speed = 0.2;//idle speed 20%
+        }else{
+            sprite_index = spr_ninja_run;
+            image_speed = 0.4;//running speed 50%
+        }
+    }
+    
 }
 
 
@@ -64,6 +81,7 @@ if(falling && wasnt_wall && is_wall){
     while(position_meeting(x+25*image_xscale, y-1, Solid)){
         y -=1;
     }
+    sprite_index = spr_ledge_grab;
     
     state = ledge_grab_state;
 }
