@@ -19,9 +19,8 @@ if(gamepad_is_connected(gp_id)){
     down_control = (gamepad_axis_value(gp_id, gp_axislv) > thresh);
     
     up_control = gamepad_button_check(gp_id, gp_face1);// A button on the xbox-360 controlller
-    up_release = gamepad_button_check_pressed(gp_id, gp_face1);// ^^^
-    attack_control = gamepad_button_check(gp_id, gp_face3);// X button on the xbox-360 controller
+    up_release = gamepad_button_check_released(gp_id, gp_face1);// ^^^
+    attack_control = gamepad_button_check_pressed(gp_id, gp_face3);// X button on the xbox-360 controller
 }
 
-show_debug_message("attack_control = " + string(attack_control));
 

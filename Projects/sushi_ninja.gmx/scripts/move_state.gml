@@ -5,12 +5,17 @@
 //This means we're in the air!    
 if(!place_meeting(x, y+1, Solid)){
     vspd += grav;//appply gravity
-    
+     
     //Ninjas in the air
-    sprite_index = spr_ninja_jump;
-    image_speed = 0;//lets just see about this
-    image_index = (vspd > 0);//1 -> going down, 0 -> going up    very clever ben...
-    
+    if(attack_control){
+        state = jump_attack_state;
+        alarm[0] = room_speed/2.5;
+        y += 1;
+    }else{
+        sprite_index = spr_ninja_jump;
+        image_speed = 0;//lets just see about this
+        image_index = (vspd > 0);//1 -> going down, 0 -> going up    very clever ben...
+    }
     //Control the jump height
     if(up_release && vspd < -6){
         vspd = -6;

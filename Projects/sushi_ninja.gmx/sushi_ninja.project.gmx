@@ -18,6 +18,7 @@
     <sprite>sprites\spr_sushi_maki</sprite>
     <sprite>sprites\spr_baddie_mask</sprite>
     <sprite>sprites\spr_sushi_bits</sprite>
+    <sprite>sprites\spr_ninja_jump_attack</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -32,6 +33,7 @@
       <script>scripts\move_state.gml</script>
       <script>scripts\ledge_grab_state.gml</script>
       <script>scripts\attack_state.gml</script>
+      <script>scripts\jump_attack_state.gml</script>
     </scripts>
     <scripts name="Baddie States">
       <script>scripts\sushi_idle_state.gml</script>
