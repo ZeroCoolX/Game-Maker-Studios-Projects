@@ -13,12 +13,14 @@
     <sprite>sprites\spr_ninja_attack</sprite>
     <sprite>sprites\spr_ninja_jump</sprite>
     <sprite>sprites\spr_ledge_grab</sprite>
+    <sprite>sprites\spr_ninja_jump_attack</sprite>
     <sprite>sprites\spr_sushi_baddie_sm</sprite>
     <sprite>sprites\spr_sushi_baddie_lg</sprite>
     <sprite>sprites\spr_sushi_maki</sprite>
     <sprite>sprites\spr_baddie_mask</sprite>
     <sprite>sprites\spr_sushi_bits</sprite>
-    <sprite>sprites\spr_ninja_jump_attack</sprite>
+    <sprite>sprites\spr_damage</sprite>
+    <sprite>sprites\spr_heart</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -43,6 +45,7 @@
   <objects name="objects">
     <objects name="Player">
       <object>objects\Player</object>
+      <object>objects\PlayerStats</object>
     </objects>
     <objects name="World">
       <object>objects\Solid</object>
@@ -54,6 +57,7 @@
     <objects name="Effects">
       <object>objects\SushiBits</object>
     </objects>
+    <object>objects\Damage</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>
