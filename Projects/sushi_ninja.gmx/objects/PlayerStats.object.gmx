@@ -29,8 +29,8 @@
 display_set_gui_size(view_wview[0], view_hview[0]);
 
 //initialize stats
-hp = 3
-maxhp = 3;
+hp = 10
+maxhp = 10;
 </string>
           </argument>
         </arguments>

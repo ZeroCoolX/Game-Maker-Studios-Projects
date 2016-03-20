@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize the Sushi
+
+
 image_speed = 0;
 image_index = 0;
 
@@ -35,6 +37,7 @@ spd = 6;
 accel = 2;
 grav = 1;
 hp = 3;
+maxhp = 3;
 
 //set the sushi's state
 state = sushi_idle_state;
@@ -115,6 +118,7 @@ script_execute(state);
 
 if(hp &lt;= 0){
     //die
+    instance_destroy();
 }
 </string>
           </argument>
@@ -143,6 +147,12 @@ if(state == sushi_idle_state){
     if(instance_exists(Player)){
         hspd = sign(Player.x-x)*spd;
         vspd = -abs(hspd*2);
+        
+        //change the random seed so its not the same for every runthrough
+        /*randomize();
+        rand = irandom_range(1, 5)
+        vspd -= rand;//each time the sushi jump its a random height
+        show_debug_message("vspd = " + string(vspd));*/
     }
     
     //Move the sushi

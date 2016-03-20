@@ -21,6 +21,7 @@
     <sprite>sprites\spr_sushi_bits</sprite>
     <sprite>sprites\spr_damage</sprite>
     <sprite>sprites\spr_heart</sprite>
+    <sprite>sprites\spr_damage_2</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -29,6 +30,7 @@
       <script>scripts\get_input.gml</script>
       <script>scripts\apply_friction.gml</script>
       <script>scripts\move.gml</script>
+      <script>scripts\direction_move_bounce.gml</script>
       <script>scripts\horizontal_move_bounce.gml</script>
     </scripts>
     <scripts name="Player States">
@@ -36,10 +38,12 @@
       <script>scripts\ledge_grab_state.gml</script>
       <script>scripts\attack_state.gml</script>
       <script>scripts\jump_attack_state.gml</script>
+      <script>scripts\hurt_state.gml</script>
     </scripts>
     <scripts name="Baddie States">
       <script>scripts\sushi_idle_state.gml</script>
       <script>scripts\sushi_jump_state.gml</script>
+      <script>scripts\sushi_hurt_state.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -56,8 +60,8 @@
     </objects>
     <objects name="Effects">
       <object>objects\SushiBits</object>
+      <object>objects\Damage</object>
     </objects>
-    <object>objects\Damage</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>
