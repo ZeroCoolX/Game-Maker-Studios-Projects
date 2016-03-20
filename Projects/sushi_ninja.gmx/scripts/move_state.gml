@@ -30,7 +30,6 @@ if(!place_meeting(x, y+1, Solid)){
     }
     
     if(attack_control){
-        y += 1;
         state = attack_state;
         alarm[0] = room_speed/2;
     }else{
