@@ -6,7 +6,8 @@
     up_control = (keyboard_check(vk_up) || keyboard_check(ord("W")));
     down_control = (keyboard_check(vk_down) || keyboard_check(ord("S")));
     up_release = (keyboard_check_released(vk_up) || keyboard_check_released(ord("W")));
-    attack_control = (keyboard_check_pressed(ord("F")));
+    attack_control = (keyboard_check_pressed(ord("F")));//should be left click
+    stab_control = (keyboard_check_pressed(ord("V")));//should be right click
     
 //Override the gamepad input
 var gp_id = 0;
@@ -21,6 +22,7 @@ if(gamepad_is_connected(gp_id)){
     up_control = gamepad_button_check(gp_id, gp_face1);// A button on the xbox-360 controlller
     up_release = gamepad_button_check_released(gp_id, gp_face1);// ^^^
     attack_control = gamepad_button_check_pressed(gp_id, gp_face3);// X button on the xbox-360 controller
+    stab_control = gamepad_button_check_pressed(gp_id, gp_face2);// B button on the xbox-360 controller
 }
 
 

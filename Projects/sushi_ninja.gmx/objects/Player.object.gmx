@@ -62,6 +62,7 @@ get_input();
           <argument>
             <kind>1</kind>
             <string>///Create player bits
+/*
 repeat(irandom_range(6, 9)){//repeats code specific number of times
     //Create wihtin an area
     var rand_x = irandom_range(-4, 4);
@@ -69,7 +70,8 @@ repeat(irandom_range(6, 9)){//repeats code specific number of times
     
     var bits = instance_create(x+rand_x, y+rand_y, SushiBits);
     bits.image_blend = c_black;
-}
+}*/
+create_bits(6, 9, 4, 4, SushiBits, true);
 </string>
           </argument>
         </arguments>
@@ -93,7 +95,6 @@ repeat(irandom_range(6, 9)){//repeats code specific number of times
           <argument>
             <kind>1</kind>
             <string>///This alarm is for the attack state
-y-=1;
 state = move_state;
 </string>
           </argument>
@@ -186,6 +187,11 @@ if(state != hurt_state &amp;&amp; other.vspd &lt;= 0){
     state = move_state;
     attacked = false;
     image_blend = c_white;//jhust in case
+}else if(state == jump_attack_state){
+    image_blend = c_white;//justin case
+}else if(state == stab_attack_state){
+    alarm[0] = room_speed/1.5;
+    state = stab_overhead_swing_state;
 }
 </string>
           </argument>

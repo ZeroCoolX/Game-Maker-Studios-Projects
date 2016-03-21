@@ -6,11 +6,11 @@ image_speed = 0.5;
 if(image_index >= 2 && !attacked){
     if(sign(image_xscale < 0)){
         //attacking left
-        xx = x-24;
+        xx = x-28;
         yy = y+2;
     }else{
         //attacking right
-        xx = x+24;
+        xx = x+28;
         yy = y+2;
     }
     var damage = instance_create(xx, y, Damage);

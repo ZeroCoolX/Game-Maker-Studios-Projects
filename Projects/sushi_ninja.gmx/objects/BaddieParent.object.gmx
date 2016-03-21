@@ -26,13 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>///Create sushi Bits
+/*
 repeat(irandom_range(6, 9)){//repeats code specific number of times
     //Create wihtin an area
     var rand_x = irandom_range(-4, 4);
     var rand_y = irandom_range(-4, 4);
     
     instance_create(x+rand_x, y+rand_y, SushiBits);
-}
+}*/
+create_bits(6, 9, 4, 4, SushiBits, false);
 </string>
           </argument>
         </arguments>
