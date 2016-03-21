@@ -1,6 +1,7 @@
 ///attack_state
 sprite_index = spr_ninja_attack;
 image_speed = 0.5;
+show_debug_message("setting attack sprite at image_index = " + string(image_index));
 //frame 3 create damage object
 
 if(image_index >= 2 && image_index < 5 && !attacked){

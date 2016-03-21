@@ -12,6 +12,7 @@ if(!place_meeting(x, y+1, Solid)){
         alarm[0] = room_speed/2.5;
         y += 1;
     }else{//Just in the air
+        //image_index = 0;
         sprite_index = spr_ninja_jump;
         image_speed = 0;//lets just see about this
         image_index = (vspd > 0);//1 -> going down, 0 -> going up    very clever ben...
@@ -31,6 +32,7 @@ if(!place_meeting(x, y+1, Solid)){
     
     //Attacking
     if(attack_control){
+        image_index = 0;
         state = attack_state;
         alarm[0] = room_speed/2;//<- 15
     }else{
@@ -41,9 +43,11 @@ if(!place_meeting(x, y+1, Solid)){
         }else{
             //ninja is grounded
             if(hspd == 0){
+                //image_index = 0;
                 sprite_index = spr_ninja_idle;
                 image_speed = 0.2;//idle speed 20%
             }else{
+                //image_index = 0;
                 sprite_index = spr_ninja_run;
                 image_speed = 0.4;//running speed 40%
             }
