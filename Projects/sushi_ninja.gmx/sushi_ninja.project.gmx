@@ -80,6 +80,8 @@
       <object>objects\SushiBits</object>
       <object>objects\Damage</object>
       <object>objects\StabCollider</object>
+      <object>objects\EffectShake</object>
+      <object>objects\Camera</object>
     </objects>
   </objects>
   <rooms name="rooms">
