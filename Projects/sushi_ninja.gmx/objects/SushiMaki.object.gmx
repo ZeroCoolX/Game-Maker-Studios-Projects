@@ -36,8 +36,10 @@ sight = 128;
 spd = 6;
 accel = 2;
 grav = 1;
+factor = 2
 hp = 3;
 maxhp = 3;
+
 
 //set the sushi's state
 state = sushi_idle_state;
@@ -147,7 +149,7 @@ if(state == sushi_idle_state){
     if(instance_exists(Player)){
         hspd = sign(Player.x-x)*spd;
         vspd = -abs(hspd*2);
-        
+        show_debug_message("hspd = " + string(hspd) + "   vspd = " + string(vspd));
         //change the random seed so its not the same for every runthrough
         /*randomize();
         rand = irandom_range(1, 5)
@@ -158,6 +160,17 @@ if(state == sushi_idle_state){
     //Move the sushi
     horizontal_move_bounce(Solid);
     state = sushi_jump_state;
+}else if(state == sushi_overhead_state){
+       /* if(state != sushi_hurt_state){
+        image_blend = make_colour_rgb(220, 150, 150);//change this later obv
+                   hspd = sign(x-stabbed_x)*2;
+                   vspd = -12;
+                   
+                   state = sushi_hurt_state;
+                    
+                   move(Solid);
+                    
+        }*/
 }
 </string>
           </argument>

@@ -33,8 +33,12 @@ vspd = 0;
 grav = 1.5;
 accel = 2;
 jspd = 16;
+
 attacked = false;
+stabbed = false;
+
 state = move_state;
+show_debug_message("stabbed = " + string(stabbed));
 
 //Get the input
 get_input();
@@ -189,9 +193,8 @@ if(state != hurt_state &amp;&amp; other.vspd &lt;= 0){
     image_blend = c_white;//jhust in case
 }else if(state == jump_attack_state){
     image_blend = c_white;//justin case
-}else if(state == stab_attack_state){
-    alarm[0] = room_speed/1.5;
-    state = stab_overhead_swing_state;
+}else if(state == stab_overhead_swing_state){
+    state = move_state;
 }
 </string>
           </argument>

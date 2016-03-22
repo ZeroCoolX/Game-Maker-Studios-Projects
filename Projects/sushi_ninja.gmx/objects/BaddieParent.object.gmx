@@ -34,7 +34,7 @@ repeat(irandom_range(6, 9)){//repeats code specific number of times
     
     instance_create(x+rand_x, y+rand_y, SushiBits);
 }*/
-create_bits(6, 9, 4, 4, SushiBits, false);
+    create_bits(6, 9, 4, 4, 4, 4, SushiBits, false);
 </string>
           </argument>
         </arguments>
