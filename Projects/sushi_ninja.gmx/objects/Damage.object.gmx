@@ -83,7 +83,7 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>///Damage the baddie
-Camera.intensity = 2;
+Camera.intensity = 2;//&lt;-- set the intensity of the camer
 
 if(other.id != creator){
     other.hp -= damage;//other is only avaliable inside of the collision event

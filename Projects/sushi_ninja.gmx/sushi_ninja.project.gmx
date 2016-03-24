@@ -85,6 +85,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room1</room>
     <room>rooms\rm_one</room>
   </rooms>
   <help>
