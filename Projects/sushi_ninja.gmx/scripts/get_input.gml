@@ -6,8 +6,8 @@
     up_control = (keyboard_check(vk_up) || keyboard_check(ord("W")));
     down_control = (keyboard_check(vk_down) || keyboard_check(ord("S")));
     up_release = (keyboard_check_released(vk_up) || keyboard_check_released(ord("W")));
-    attack_control = (keyboard_check_pressed(ord("F")));//should be left click
-    stab_control = (keyboard_check_pressed(ord("V")));//should be right click
+    attack_control = mouse_check_button_pressed(mb_left);
+    stab_control = mouse_check_button_pressed(mb_right);
     
 //Override the gamepad input
 var gp_id = 0;

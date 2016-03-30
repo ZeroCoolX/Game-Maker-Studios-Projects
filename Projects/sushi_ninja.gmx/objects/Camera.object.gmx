@@ -58,8 +58,8 @@ intensity = max(0, intensity);
 /*  Just constantly shaking to show where it stops  */
 
 //calculate a random offset value
-shake_xoffset = round(random(2) + random(-2));//2 for right now
-shake_yoffset = round(random(2) + random(-2));
+shake_xoffset = 0;//round(random(2) + random(-2));//2 for right now
+shake_yoffset = 0;//round(random(2) + random(-2));
 //follow the player
 x = Player.x + shake_xoffset;
 y = Player.y + shake_yoffset;
