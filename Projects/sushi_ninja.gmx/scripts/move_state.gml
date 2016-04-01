@@ -33,8 +33,8 @@ if(!place_meeting(x, y+1, Solid)){
     //Attacking
     if(attack_control){
         image_index = 0;
-        state = attack_state;
-        alarm[0] = room_speed/2;//<- 15
+        state = attack_combo_one_state;
+        //alarm[0] = 10;//room_speed/2;//<- 10
     }else{
         //Cannot attack and stab at the same time: two diff animations....
         if(stab_control){
@@ -55,7 +55,6 @@ if(!place_meeting(x, y+1, Solid)){
         }
         
     }
-    
 }
 
 

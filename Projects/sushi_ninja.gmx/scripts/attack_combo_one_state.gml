@@ -1,8 +1,8 @@
-///attack_state
+///attack_combo_one_state
 sprite_index = spr_ninja_combo_1;
-image_speed = 0.5;
+image_speed = 0.4;
 //frame 3 create damage object
-
+/*
 if(image_index >= 2 && image_index < 5 && !attacked){
     if(sign(image_xscale < 0)){
         //attacking left
@@ -17,7 +17,13 @@ if(image_index >= 2 && image_index < 5 && !attacked){
     damage.image_xscale = sign(image_xscale);
     damage.creator = id;//set the damage objects creator to this
     attacked = true;
+}*/
+if((round(image_index) == 4 || round(image_index) == 5) && attack_control){
+    image_index = 0;
+    state = attack_combo_two_state;
 }
-if(image_index >= 5){
+/*
+if(image_index >= 4){
     attacked = false;
-}
+}*/
+

@@ -38,6 +38,8 @@ should_shake = 0;
 attacked = false;
 stabbed = false;
 
+last_input = 0;
+
 state = move_state;
 show_debug_message("stabbed = " + string(stabbed));
 
@@ -100,7 +102,7 @@ create_bits(6, 9, 4, 4, 4, 4, SushiBits, true);
           <argument>
             <kind>1</kind>
             <string>///This alarm is for the attack state
-state = move_state;
+//state = move_state;
 </string>
           </argument>
         </arguments>
@@ -194,11 +196,13 @@ if(state != hurt_state &amp;&amp; other.vspd &lt;= 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(state == attack_state){
+            <string>if(state == attack_combo_three_state || (state == attack_combo_two_state &amp;&amp; !attack_control) || (state == attack_combo_one_state &amp;&amp; !attack_control)){
     state = move_state;
     attacked = false;
     image_blend = c_white;//jhust in case
 }else if(state == jump_attack_state){
+    state = move_state;
+    attacked = false;
     image_blend = c_white;//justin case
 }else if(state == stab_overhead_swing_state){
     state = move_state;

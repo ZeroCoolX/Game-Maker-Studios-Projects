@@ -18,6 +18,9 @@
       <sprite>sprites\spr_player</sprite>
       <sprite>sprites\spr_ninja_stab_attack_wo_swoosh</sprite>
       <sprite>sprites\spr_ninja_overhead_swing</sprite>
+      <sprite>sprites\spr_ninja_combo_3</sprite>
+      <sprite>sprites\spr_ninja_combo_1</sprite>
+      <sprite>sprites\spr_ninja_combo_2</sprite>
     </sprites>
     <sprites name="Baddie Sprites">
       <sprite>sprites\spr_sushi_maki</sprite>
@@ -53,6 +56,9 @@
       <script>scripts\hurt_state.gml</script>
       <script>scripts\stab_attack_state.gml</script>
       <script>scripts\stab_overhead_swing_state.gml</script>
+      <script>scripts\attack_combo_one_state.gml</script>
+      <script>scripts\attack_combo_two_state.gml</script>
+      <script>scripts\attack_combo_three_state.gml</script>
     </scripts>
     <scripts name="Baddie States">
       <script>scripts\sushi_idle_state.gml</script>
