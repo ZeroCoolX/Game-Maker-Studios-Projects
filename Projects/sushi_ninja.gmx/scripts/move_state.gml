@@ -5,9 +5,9 @@
 //This means we're in the air!    
 if(!place_meeting(x, y+1, Solid)){
     vspd += grav;//appply gravity
-     
+     show_debug_message("in the air and state = " + string(state));
     //Ninjas in the air and attacking
-    if(attack_control /*&& state != attack_state*/){
+    if(attack_control){
         state = jump_attack_state;
         alarm[0] = room_speed/2.5;
         y += 1;

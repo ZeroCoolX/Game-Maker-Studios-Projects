@@ -22,8 +22,3 @@ if(image_index >= 2 && image_index < 5 && !attacked){
 if(image_index >= 5){
     attacked = false;
 }*/
-/*
-if(image_index >= 3 && attack_control){
-    image_index = 0;
-    state = attack_combo_three_state;
-}*/
