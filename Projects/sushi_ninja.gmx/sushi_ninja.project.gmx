@@ -27,6 +27,8 @@
       <sprite>sprites\spr_sushi_baddie_lg</sprite>
       <sprite>sprites\spr_sushi_baddie_sm</sprite>
       <sprite>sprites\spr_baddie_mask</sprite>
+      <sprite>sprites\spr_sushi_baddie_spear</sprite>
+      <sprite>sprites\spr_sushi_baddie_spear_running</sprite>
     </sprites>
     <sprites name="Effects">
       <sprite>sprites\spr_sushi_bits</sprite>
@@ -47,6 +49,7 @@
       <script>scripts\move.gml</script>
       <script>scripts\direction_move_bounce.gml</script>
       <script>scripts\horizontal_move_bounce.gml</script>
+      <script>scripts\horizontal_move_run.gml</script>
     </scripts>
     <scripts name="Player States">
       <script>scripts\move_state.gml</script>
@@ -63,6 +66,7 @@
     <scripts name="Baddie States">
       <script>scripts\sushi_idle_state.gml</script>
       <script>scripts\sushi_jump_state.gml</script>
+      <script>scripts\sushi_run_state.gml</script>
       <script>scripts\sushi_hurt_state.gml</script>
       <script>scripts\sushi_overhead_state.gml</script>
     </scripts>
@@ -81,6 +85,7 @@
     <objects name="Baddies">
       <object>objects\SushiMaki</object>
       <object>objects\BaddieParent</object>
+      <object>objects\SushiSpear</object>
     </objects>
     <objects name="Effects">
       <object>objects\SushiBits</object>

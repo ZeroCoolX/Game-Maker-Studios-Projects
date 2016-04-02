@@ -1,10 +1,9 @@
-///horizontal_move_bounce(collision_object)
+///horizontal_move_run(collision_object)
 
 var collision_object = argument[0];
 
 //Horizontal collisions
 if(place_meeting(x+hspd, y, collision_object)){
-show_debug_message("FUCK hor");
     while(!place_meeting(x+sign(hspd), y, collision_object)){
         x+= sign(hspd);
     }
