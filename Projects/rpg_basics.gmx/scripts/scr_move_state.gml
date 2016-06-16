@@ -1,5 +1,7 @@
 ///scr_move_state
 
+movement = MOVE;
+
 if(obj_input.dash_key){//can only dash if key pressed AND had enough stamina to dash
     //8 is the distance needed to be for the sign to activate
     var xdir = lengthdir_x(8, face*90);
@@ -36,6 +38,17 @@ if(obj_input.attack_key){
     state = scr_attack_state;
 }
 
+if(obj_input.spell_key){
+    var proj = instance_create(x,y,obj_projectile);
+    var xforce = lengthdir_x(20, face*90);//get speed and diection we're facing
+    var yforce = lengthdir_y(20, face*90);
+    proj.creator = id;
+    
+    with(proj){
+        physics_apply_impulse(x, y, xforce, yforce);
+    }
+}
+
 //Get direction
 /*
     90
@@ -68,21 +81,5 @@ if(len == 0){
     image_index = 0;//standing sprite image within current animation
 }
 
-
-//change sprites based on the direction faced
-switch(face){
-    case RIGHT://0
-        sprite_index = spr_player_right;
-        break;
-    case UP://1
-        sprite_index = spr_player_up;
-        break;
-    case LEFT://2
-        sprite_index = spr_player_left;
-        break;
-    case DOWN://3
-        sprite_index = spr_player_down;
-        break;
-}
 
 

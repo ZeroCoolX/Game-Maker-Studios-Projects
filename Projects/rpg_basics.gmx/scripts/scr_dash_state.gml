@@ -1,5 +1,5 @@
 ///scr_move_state
-
+movement = MOVE;
 if(len == 0){//if we're not moving only
     dir = face * 90;//gets current facing direction in actual degrees
 }

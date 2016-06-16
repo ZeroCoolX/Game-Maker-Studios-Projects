@@ -6,8 +6,9 @@ if(alarm[0] <= 0){
     
     //reset alarm
     alarm[0] = room_speed*irandom_range(2,4);//random integer between the range values
-    
-    //give enemy random point in the room to try and move to
-    targetx = random(room_width);
-    targety = random(room_height);
+    if(state == scr_enemy_wander_state){
+        //give enemy random point in the room to try and move to
+        xaxis = random_range(-1,1);
+        yaxis = random_range(-1,1);
+    }
 }

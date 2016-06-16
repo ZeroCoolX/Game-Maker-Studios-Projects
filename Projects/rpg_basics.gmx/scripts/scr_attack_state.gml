@@ -2,20 +2,7 @@
 image_speed = 0.5;
 
 //determine which attack animation to use
-switch(sprite_index){
-    case spr_player_down:
-        sprite_index = spr_player_attack_down;
-        break;
-    case spr_player_right:
-        sprite_index = spr_player_attack_right;
-        break;
-    case spr_player_left:
-        sprite_index = spr_player_attack_left;
-        break;
-    case spr_player_up:
-        sprite_index = spr_player_attack_up;
-        break;
-}
+movement = ATTACK;
 
 //frame 4 (index 3) is where the attack actually "hits" 
 if(image_index >= 3 && !attacked){//only create damage object once per attack
@@ -24,20 +11,20 @@ if(image_index >= 3 && !attacked){//only create damage object once per attack
     var xx = 0;
     var yy = 0;
     
-    switch(sprite_index){
-        case spr_player_attack_down:
+    switch(face){
+        case DOWN:
             xx = x;
             yy = y+14;
             break;
-        case spr_player_attack_right:
+        case RIGHT:
             xx = x+10;
             yy = y;
             break;
-        case spr_player_attack_left:
+        case LEFT:
             xx = x - 10;
             yy = y;
             break;
-        case spr_player_attack_up:
+        case UP:
             xx = x;
             yy = y-10;
             break;

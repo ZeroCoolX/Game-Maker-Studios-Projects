@@ -26,6 +26,12 @@
     <sprite>sprites\spr_health</sprite>
     <sprite>sprites\spr_sign</sprite>
     <sprite>sprites\spr_dialog_box</sprite>
+    <sprite>sprites\spr_chinlin_run_right</sprite>
+    <sprite>sprites\spr_chinlin_run_up</sprite>
+    <sprite>sprites\spr_chinlin_stand_down</sprite>
+    <sprite>sprites\spr_chinlin_stand_right</sprite>
+    <sprite>sprites\spr_chinlin_stand_up</sprite>
+    <sprite>sprites\spr_chinlin_run_down</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_grass</background>
@@ -39,7 +45,6 @@
     </scripts>
     <scripts name="Helper States">
       <script>scripts\scr_get_face.gml</script>
-      <script>scripts\scr_get_input.gml</script>
     </scripts>
     <scripts name="Enemy States">
       <script>scripts\scr_enemy_idle_state.gml</script>
@@ -49,12 +54,15 @@
       <scripts name="Enemy Helper Scripts">
         <script>scripts\scr_enemy_choose_next_state.gml</script>
         <script>scripts\scr_check_for_player.gml</script>
+        <script>scripts\scr_move_axis.gml</script>
       </scripts>
     </scripts>
     <scripts name="Helper Functions">
       <script>scripts\scr_string_copy_words.gml</script>
       <script>scripts\scr_chance.gml</script>
       <script>scripts\scr_save_game.gml</script>
+      <script>scripts\scr_load_game.gml</script>
+      <script>scripts\scr_get_input.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -64,6 +72,7 @@
     <object>objects\obj_view</object>
     <object>objects\obj_dash_effect</object>
     <object>objects\obj_enemy_slime</object>
+    <object>objects\obj_enemy_chinlin</object>
     <object>objects\obj_damage</object>
     <object>objects\obj_player_stats</object>
     <object>objects\obj_expr</object>
@@ -74,6 +83,7 @@
     <object>objects\obj_sign</object>
     <object>objects\obj_input</object>
     <object>objects\obj_pause_menu</object>
+    <object>objects\obj_projectile</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>

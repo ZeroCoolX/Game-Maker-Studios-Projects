@@ -14,7 +14,7 @@ attack_key = keyboard_check_pressed(ord('X'));
 //had to switch the dash key from C to space due to a ghosting issue when S+D+C was pressedw
 dash_key = (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_shift));
 pause_key = keyboard_check_pressed(vk_escape);
-
+spell_key = keyboard_check_pressed(ord('V'));
 
 //Set axis instance variables
 xaxis = (right_key - left_key);
@@ -33,4 +33,5 @@ if(gamepad_is_connected(0)){
     dash_key = gamepad_button_check_pressed(0, gp_face1);// A button on the xbox-360 controller
     attack_key = gamepad_button_check_pressed(0, gp_face3);// X button on the xbox-360 controller
     pause_key = gamepad_button_check_pressed(0, gp_start);//Start button on the xbox-360 controller
+    spell_key = gamepad_button_check_pressed(0, gp_face4);//Y button on the xbox-360 controller
 }
