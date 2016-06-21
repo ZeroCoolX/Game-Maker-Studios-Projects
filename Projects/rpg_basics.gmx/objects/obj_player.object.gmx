@@ -27,6 +27,11 @@
             <kind>1</kind>
             <string>/// Set fixed rotation
 
+//check instances to only have 1
+if(instance_number(obj_player) &gt; 1){
+    instance_destroy();
+}
+
 /*NOTE - objects with a lower depth show in front of objects with a heigher depth*/
 
 //go to the parent and run its create as well
@@ -35,11 +40,9 @@ event_inherited();
 //Image speed dictates how fast an animation occurs. 0-1
 image_speed = 0;
 
-//indicates if the player has attacked
-attacked = false;
 
 //player speeds
-spd = 2;
+spd = 3;
 hspd = 0;
 vspd = 0;
 
@@ -58,6 +61,7 @@ state = scr_move_state;//no parens after if a script is getting assigned to a va
 //where the player is facing 0, 1, 2, or 3
 face = RIGHT;//right is set as a macro. kinda like enums
 movement = MOVE;
+weapon = obj_sword;
 
 sprite[RIGHT,MOVE] = spr_player_right;
 sprite[UP,MOVE] = spr_player_up;
@@ -185,6 +189,7 @@ if(room_exists(other.new_room)){
             <kind>1</kind>
             <string>///Collect health
 with(other){
+    audio_play_sound(snd_expr, 6, false);
     instance_destroy();
 }
 
@@ -216,6 +221,7 @@ with(obj_player_stats){
             <kind>1</kind>
             <string>///Collect experience
 with(other){
+    audio_play_sound(snd_expr, 7, false);
     instance_destroy();
 }
 

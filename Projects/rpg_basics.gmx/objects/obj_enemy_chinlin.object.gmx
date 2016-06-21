@@ -31,9 +31,9 @@
 event_inherited();
 
 //animation speed
-image_speed = 0.1;//super slow animation
+image_speed = 0.2;//super slow animation
 //speed
-spd = 1;
+spd = 1.5;
 //state
 state = scr_enemy_idle_state;
 //alarm to make the enemy wander
@@ -43,6 +43,25 @@ sight = 64
 //direction enemy is going
 xaxis = 0;
 yaxis = 0;
+
+movement = IDLE;
+face = RIGHT;
+
+//create sprite array
+sprite[RIGHT,MOVE] = spr_chinlin_run_right;
+sprite[UP,MOVE] = spr_chinlin_run_up;
+sprite[LEFT,MOVE] = spr_chinlin_run_right;
+sprite[DOWN,MOVE] = spr_chinlin_run_down;
+
+sprite[RIGHT,ATTACK] = spr_chinlin_run_right;
+sprite[UP,ATTACK] = spr_chinlin_run_up;
+sprite[LEFT,ATTACK] = spr_chinlin_run_right;
+sprite[DOWN,ATTACK] = spr_chinlin_run_down;
+
+sprite[RIGHT,IDLE] = spr_chinlin_stand_right;
+sprite[UP,IDLE] = spr_chinlin_stand_up;
+sprite[LEFT,IDLE] = spr_chinlin_stand_right;
+sprite[DOWN,IDLE] = spr_chinlin_stand_down;
 
 
 
@@ -70,6 +89,7 @@ yaxis = 0;
             <kind>1</kind>
             <string>///Create droppable
 instance_create(x,y,obj_expr);
+audio_play_sound(snd_enemy_die, 5, false);
 
 //Drop a health pack
 if(scr_chance(0.5)){
@@ -149,6 +169,7 @@ if(scr_chance(0.5)){
 event_inherited();
 
 script_execute(state);
+sprite_index = sprite[face, movement];
 </string>
           </argument>
         </arguments>

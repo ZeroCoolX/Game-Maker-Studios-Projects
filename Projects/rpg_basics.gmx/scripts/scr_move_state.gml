@@ -55,6 +55,7 @@ if(obj_input.spell_key){
 180     0
     270
 */
+dir2 = point_direction(0,0, obj_input.rxaxis, obj_input.ryaxis);
 dir = point_direction(0,0, obj_input.xaxis, obj_input.yaxis);
 
 //Get length
@@ -62,7 +63,9 @@ if(obj_input.xaxis == 0 && obj_input.yaxis == 0){
     len = 0;
 }else{
     len = spd;
-    scr_get_face();
+}
+if(obj_input.rxaxis != 0 || obj_input.ryaxis != 0){
+    scr_get_face(dir2);
 }
 
 //Get the speeds of the player

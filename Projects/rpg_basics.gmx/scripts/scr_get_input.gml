@@ -30,6 +30,8 @@ if(gamepad_is_connected(0)){
     down_key = gamepad_button_check_pressed(0, gp_padd);
     xaxis = gamepad_axis_value(0, gp_axislh);//(device, axis-index)
     yaxis = gamepad_axis_value(0, gp_axislv);
+    rxaxis = gamepad_axis_value(0, gp_axisrh);//(device, axis-index)
+    ryaxis = gamepad_axis_value(0, gp_axisrv);
     dash_key = gamepad_button_check_pressed(0, gp_face1);// A button on the xbox-360 controller
     attack_key = gamepad_button_check_pressed(0, gp_face3);// X button on the xbox-360 controller
     pause_key = gamepad_button_check_pressed(0, gp_start);//Start button on the xbox-360 controller

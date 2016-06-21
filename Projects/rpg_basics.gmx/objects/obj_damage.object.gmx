@@ -86,6 +86,7 @@ instance_destroy();
 
 //other: the object being collided with
 if(other.id != creator){
+    audio_play_sound(snd_player_takes_damage, 9, false)//play sound
     obj_player_stats.hp -= damage;//other is only avaliable inside the collision event
     
     //knock other back

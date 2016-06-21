@@ -69,6 +69,7 @@ yaxis = 0;
           <argument>
             <kind>1</kind>
             <string>///Create droppable
+audio_play_sound(snd_enemy_die, 5, false);
 instance_create(x,y,obj_expr);
 
 //Drop a health pack

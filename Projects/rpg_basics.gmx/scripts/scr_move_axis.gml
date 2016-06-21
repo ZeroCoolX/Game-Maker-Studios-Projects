@@ -11,5 +11,10 @@
     if(hspd != 0){
         image_xscale = sign(hspd);
     }
+    scr_get_face(dir);
+    movement = MOVE;
+    
     phy_position_x += hspd; //-1 or 1 based on the sign of the value. -10 = -1, 5 = 1..etc
     phy_position_y += vspd;
+    
+
